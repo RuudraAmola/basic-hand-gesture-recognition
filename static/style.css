@@ -1,0 +1,172 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #111827;
+  color: #f9fafb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(34, 197, 94, 0.18), transparent 32rem),
+    linear-gradient(135deg, #0f172a 0%, #111827 52%, #020617 100%);
+}
+
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.hero {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #86efac;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+}
+
+.subtitle {
+  max-width: 680px;
+  color: #cbd5e1;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.video-card,
+.status-card {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.78);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.video-card {
+  overflow: hidden;
+}
+
+.video-card img {
+  display: block;
+  width: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  background: #020617;
+}
+
+.status-card {
+  padding: 28px;
+}
+
+.label {
+  margin-bottom: 10px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gesture {
+  margin-bottom: 28px;
+  color: #86efac;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.tips {
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
+  padding-top: 24px;
+}
+
+.supported-gestures {
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
+  padding-top: 24px;
+  margin-bottom: 24px;
+}
+
+.supported-gestures h2 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.gesture-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gesture-list span {
+  border: 1px solid rgba(134, 239, 172, 0.35);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(22, 163, 74, 0.12);
+  color: #bbf7d0;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.tips h2 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.tips ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #d1d5db;
+  line-height: 1.8;
+}
+
+kbd {
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  border-radius: 6px;
+  padding: 2px 6px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #f8fafc;
+  font-size: 0.85em;
+}
+
+@media (max-width: 840px) {
+  .page {
+    padding: 28px 0;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .video-card img {
+    min-height: 260px;
+  }
+}
