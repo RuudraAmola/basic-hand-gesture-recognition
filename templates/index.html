@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hand Gesture Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">OpenCV + Flask</p>
+        <h1>Hand Gesture Recognition</h1>
+        <p class="subtitle">
+          Place your hand inside the green box and hold it steady while the app detects the gesture.
+        </p>
+      </section>
+
+      <section class="dashboard" aria-label="Gesture recognition dashboard">
+        <div class="video-card">
+          <img src="{{ url_for('video_feed') }}" alt="Live webcam feed with gesture overlay">
+        </div>
+
+        <aside class="status-card">
+          <p class="label">Current gesture</p>
+          <p id="gesture" class="gesture">Waiting for camera</p>
+
+          <div class="supported-gestures">
+            <h2>Supported gestures</h2>
+            <div class="gesture-list" aria-label="Supported gestures">
+              <span>ZERO</span>
+              <span>ONE</span>
+              <span>TWO</span>
+              <span>THREE</span>
+              <span>FOUR</span>
+              <span>FIVE</span>
+              <span>SIX</span>
+              <span>PERFECT</span>
+            </div>
+          </div>
+
+          <div class="tips">
+            <h2>Tips</h2>
+            <ul>
+              <li>Use bright, even lighting.</li>
+              <li>Keep your hand inside the green square.</li>
+              <li>Use a plain background for better detection.</li>
+              <li>Stop the app with <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      async function updateGesture() {
+        try {
+          const response = await fetch("{{ url_for('gesture') }}", { cache: "no-store" });
+          const data = await response.json();
+          document.getElementById("gesture").textContent = data.gesture || "No gesture detected";
+        } catch (error) {
+          document.getElementById("gesture").textContent = "Connection lost";
+        }
+      }
+
+      updateGesture();
+      setInterval(updateGesture, 500);
+    </script>
+  </body>
+</html>
